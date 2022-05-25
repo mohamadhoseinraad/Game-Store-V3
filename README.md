@@ -1,5 +1,5 @@
 # سامانه Courses 
-[Documentation](https://docs.google.com/document/d/1aGKJx90JMwXqh_yXCuZlBNGL3UVjunAvVK9wQJ6WTiY/edit)
+[Documentation](https://docs.google.com/document/d/1pE2PqIAwha1YQk13pP6KJ27zEJPt4VJAlMoNKAJKDus/edit?usp=sharing)
 
 <ul>
 <li>
