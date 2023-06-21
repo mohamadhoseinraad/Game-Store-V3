@@ -1,7 +1,7 @@
-# سامانه Courses 
-[Documentation](https://docs.google.com/document/d/1pE2PqIAwha1YQk13pP6KJ27zEJPt4VJAlMoNKAJKDus/edit?usp=sharing)
+# Fariborz Game Store V2
+[Documentation](https://docs.google.com/document/d/1OahsSH1X6MmyersdhQ8q5-EWvrjDK_4ZxnWIyzjKmF4/edit?usp=sharing)
 
-در این پروژه از شما می خواهیم هر آنچه در برنامه از طرف ادمین ها یا کاربران به برنامه اضافه می شود ذخیره شود.
+در این پروژه از شما می خواهیم هر آنچه در برنامه از طرف انواع کاربران به برنامه اضافه می شود ذخیره شود.
 <ul>
 <li>
 clone in your computer: 
