@@ -1,5 +1,6 @@
 package ir.ac.kntu.menu.User.Library;
 
+import ir.ac.kntu.DAOStore;
 import ir.ac.kntu.HelperClasses.FeedBacksHelper;
 import ir.ac.kntu.models.product.Community;
 import ir.ac.kntu.models.product.FeedBack;
@@ -37,28 +38,35 @@ public class GameLibraryMenu extends Menu {
             switch (option) {
                 case RATE: {
                     rate();
+                    DAOStore.write(storeDB);
                     break;
                 }
                 case COMMENT: {
                     comment();
+                    DAOStore.write(storeDB);
                     break;
                 }
                 case SHOW_COMMENTS: {
                     showComments();
+                    DAOStore.write(storeDB);
                     break;
                 }
                 case BACK: {
+                    DAOStore.write(storeDB);
                     return;
                 }
                 case FEEDBACK: {
                     feedback();
+                    DAOStore.write(storeDB);
                     break;
                 }
                 default: {
+                    DAOStore.write(storeDB);
                     break;
                 }
             }
         }
+        DAOStore.write(storeDB);
         System.exit(0);
     }
 

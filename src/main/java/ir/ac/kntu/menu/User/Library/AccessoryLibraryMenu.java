@@ -1,5 +1,6 @@
 package ir.ac.kntu.menu.User.Library;
 
+import ir.ac.kntu.DAOStore;
 import ir.ac.kntu.utils.Scan;
 import ir.ac.kntu.utils.TerminalColor;
 import ir.ac.kntu.menu.Menu;
@@ -29,28 +30,36 @@ public class AccessoryLibraryMenu extends Menu {
             switch (option) {
                 case RATE: {
                     rate();
+                    DAOStore.write(storeDB);
                     break;
                 }
                 case COMMENT: {
                     comment();
+                    DAOStore.write(storeDB);
                     break;
                 }
                 case SHOW_COMMENTS: {
                     showComments();
+                    DAOStore.write(storeDB);
                     break;
                 }
                 case BACK: {
+                    DAOStore.write(storeDB);
                     return;
                 }
                 case FEEDBACK: {
                     feedback();
+                    DAOStore.write(storeDB);
                     break;
                 }
                 default: {
+                    DAOStore.write(storeDB);
                     break;
                 }
             }
+            DAOStore.write(storeDB);
         }
+        DAOStore.write(storeDB);
         System.exit(0);
     }
 

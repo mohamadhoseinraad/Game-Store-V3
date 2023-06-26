@@ -1,5 +1,6 @@
 package ir.ac.kntu.menu.User.Store;
 
+import ir.ac.kntu.DAOStore;
 import ir.ac.kntu.menu.User.SearchProduct;
 import ir.ac.kntu.models.Store;
 import ir.ac.kntu.menu.Menu;
@@ -43,13 +44,16 @@ public class UserStore extends Menu {
                         break;
                     }
                     case BACK: {
+                        DAOStore.write(storeDB);
                         return;
                     }
                     default:
                         System.out.println("Invalid choose");
                 }
             }
+            DAOStore.write(storeDB);
         }
+        DAOStore.write(storeDB);
         System.exit(0);
     }
 

@@ -1,5 +1,6 @@
 package ir.ac.kntu.menu.User.Store;
 
+import ir.ac.kntu.DAOStore;
 import ir.ac.kntu.HelperClasses.GameHelper;
 import ir.ac.kntu.utils.Scan;
 import ir.ac.kntu.models.Store;
@@ -38,13 +39,16 @@ public class ProductStoreMenu extends Menu {
                     switch (option) {
                         case BUY: {
                             buy();
+                            DAOStore.write(storeDB);
                             break;
                         }
                         case GIFT: {
                             gift();
+                            DAOStore.write(storeDB);
                             break;
                         }
                         case BACK: {
+                            DAOStore.write(storeDB);
                             return;
                         }
                         default: {
@@ -52,7 +56,9 @@ public class ProductStoreMenu extends Menu {
                         }
                     }
                 }
+                DAOStore.write(storeDB);
             }
+            DAOStore.write(storeDB);
             System.exit(0);
         }
     }

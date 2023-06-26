@@ -1,5 +1,6 @@
 package ir.ac.kntu.menu.User.Library;
 
+import ir.ac.kntu.DAOStore;
 import ir.ac.kntu.HelperClasses.StoreHelperClass;
 import ir.ac.kntu.menu.ExportUserProduct;
 import ir.ac.kntu.menu.User.SearchProduct;
@@ -36,10 +37,12 @@ public class UserLibrary extends Menu {
                 switch (option) {
                     case ALL: {
                         allLibrary();
+                        DAOStore.write(storeDB);
                         break;
                     }
                     case GAMES: {
                         games();
+                        DAOStore.write(storeDB);
                         break;
                     }
                     case EXPORT_LIBRARY_TO_HTML: {
@@ -55,13 +58,16 @@ public class UserLibrary extends Menu {
                         break;
                     }
                     case BACK: {
+                        DAOStore.write(storeDB);
                         return;
                     }
                     default:
                         System.out.println("Invalid choose");
                 }
             }
+            DAOStore.write(storeDB);
         }
+        DAOStore.write(storeDB);
         System.exit(0);
     }
 
