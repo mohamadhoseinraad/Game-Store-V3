@@ -1,5 +1,6 @@
 package ir.ac.kntu.menu.Admin.Game;
 
+import ir.ac.kntu.DAOStore;
 import ir.ac.kntu.HelperClasses.GetInputHelper;
 import ir.ac.kntu.HelperClasses.ProductHelper;
 import ir.ac.kntu.menu.Admin.Admins.AdminEditAdminMenu;
@@ -23,6 +24,8 @@ public class AdminGameEdit extends Menu {
 
     private final Store storeDB;
 
+    private AdminGameEditOptions option;
+
     public AdminGameEdit(Game currentGame, Admin admin, Store storeDB) {
         this.currentGame = currentGame;
         this.admin = admin;
@@ -31,11 +34,10 @@ public class AdminGameEdit extends Menu {
 
     @Override
     public void showMenu() {
-        AdminGameEditOptions option;
         while (showGame() && (option = printMenuOptions("EDIT Games", AdminGameEditOptions.class)) != AdminGameEditOptions.EXIT) {
             if (option != null) {
                 switch (option) {
-                    case AVAILABLE:{
+                    case AVAILABLE: {
                         available();
                         break;
                     }
@@ -64,19 +66,22 @@ public class AdminGameEdit extends Menu {
                         break;
                     }
                     case BACK: {
+                        DAOStore.write(storeDB);
                         return;
                     }
                     default:
                         System.out.println("Invalid choose");
                 }
             }
+            DAOStore.write(storeDB);
         }
+        DAOStore.write(storeDB);
         System.exit(0);
     }
 
     private void available() {
         System.out.println("Y for available N for not available");
-        if (GetInputHelper.inputConform().equals("Y")){
+        if (GetInputHelper.inputConform().equals("Y")) {
             currentGame.setAvailable(true);
             TerminalColor.green();
             System.out.println("Now is available ");

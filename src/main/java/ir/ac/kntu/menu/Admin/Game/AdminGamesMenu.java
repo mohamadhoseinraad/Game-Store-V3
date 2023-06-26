@@ -1,5 +1,6 @@
 package ir.ac.kntu.menu.Admin.Game;
 
+import ir.ac.kntu.DAOStore;
 import ir.ac.kntu.HelperClasses.GameHelper;
 import ir.ac.kntu.HelperClasses.GetInputHelper;
 import ir.ac.kntu.HelperClasses.SelectItemHelper;
@@ -55,13 +56,16 @@ public class AdminGamesMenu extends Menu {
                         break;
                     }
                     case BACK: {
+                        DAOStore.write(storeDB);
                         return;
                     }
                     default:
                         System.out.println("Invalid choose");
                 }
             }
+            DAOStore.write(storeDB);
         }
+        DAOStore.write(storeDB);
         System.exit(0);
     }
 

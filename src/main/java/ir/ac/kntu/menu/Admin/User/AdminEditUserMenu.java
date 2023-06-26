@@ -1,5 +1,6 @@
 package ir.ac.kntu.menu.Admin.User;
 
+import ir.ac.kntu.DAOStore;
 import ir.ac.kntu.utils.Scan;
 import ir.ac.kntu.HelperClasses.UserHelper;
 import ir.ac.kntu.models.Store;
@@ -45,17 +46,22 @@ public class AdminEditUserMenu extends Menu {
                     }
                     case BAN_USER: {
                         if (banUser()) {
+                            DAOStore.write(storeDB);
                             return;
                         }
                         break;
                     }
-                    case BACK:
+                    case BACK: {
+                        DAOStore.write(storeDB);
                         return;
+                    }
                     default:
                         System.out.println("Invalid choose");
                 }
             }
+            DAOStore.write(storeDB);
         }
+        DAOStore.write(storeDB);
         System.exit(0);
     }
 

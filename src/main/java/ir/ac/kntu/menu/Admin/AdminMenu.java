@@ -1,5 +1,6 @@
 package ir.ac.kntu.menu.Admin;
 
+import ir.ac.kntu.DAOStore;
 import ir.ac.kntu.HelperClasses.FeedBacksHelper;
 import ir.ac.kntu.menu.Admin.Accessory.AdminAccessoriesMenu;
 import ir.ac.kntu.menu.Admin.Admins.AdminAdminsSearch;
@@ -51,13 +52,16 @@ public class AdminMenu extends Menu {
                         break;
                     }
                     case LOGOUT: {
+                        DAOStore.write(storeDB);
                         return;
                     }
                     default:
                         System.out.println("Invalid choose");
                 }
             }
+            DAOStore.write(storeDB);
         }
+        DAOStore.write(storeDB);
         System.exit(0);
     }
 

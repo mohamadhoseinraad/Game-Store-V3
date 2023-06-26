@@ -1,5 +1,6 @@
 package ir.ac.kntu.menu.User;
 
+import ir.ac.kntu.DAOStore;
 import ir.ac.kntu.models.Store;
 import ir.ac.kntu.utils.TerminalColor;
 import ir.ac.kntu.menu.Menu;
@@ -52,12 +53,15 @@ public class UserMenu extends Menu {
                     case LOGOUT:
                         currentUser.isLogout();
                         System.out.println("Back soon :)");
+                        DAOStore.write(storeDB);
                         return;
                     default:
                         System.out.println("Invalid choose");
                 }
             }
+            DAOStore.write(storeDB);
         }
+        DAOStore.write(storeDB);
         System.exit(0);
     }
 

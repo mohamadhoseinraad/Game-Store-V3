@@ -1,5 +1,6 @@
 package ir.ac.kntu.menu.Admin.User;
 
+import ir.ac.kntu.DAOStore;
 import ir.ac.kntu.models.SearchEnum.UserFilterBy;
 import ir.ac.kntu.utils.Scan;
 import ir.ac.kntu.HelperClasses.UserHelper;
@@ -171,16 +172,20 @@ public class AdminUserSearch {
                     }
                     case ADD_USER: {
                         UserHelper.makeUser(storeDB);
+                        DAOStore.write(storeDB);
                         break;
                     }
                     case BACK: {
-                        break;
+                        DAOStore.write(storeDB);
+                        return;
                     }
                     default:
                         System.out.println("Invalid choose");
                 }
             }
+            DAOStore.write(storeDB);
         }
+        DAOStore.write(storeDB);
         System.exit(0);
     }
 

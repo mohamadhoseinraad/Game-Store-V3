@@ -1,5 +1,6 @@
 package ir.ac.kntu.menu.Admin.Accessory;
 
+import ir.ac.kntu.DAOStore;
 import ir.ac.kntu.HelperClasses.AccessoryHelper;
 import ir.ac.kntu.HelperClasses.ProductHelper;
 import ir.ac.kntu.HelperClasses.SelectItemHelper;
@@ -49,13 +50,16 @@ public class AdminAccessoriesMenu extends Menu {
                         break;
                     }
                     case BACK: {
+                        DAOStore.write(storeDB);
                         return;
                     }
                     default:
                         System.out.println("Invalid choose");
                 }
             }
+            DAOStore.write(storeDB);
         }
+        DAOStore.write(storeDB);
         System.exit(0);
     }
 
@@ -97,17 +101,17 @@ public class AdminAccessoriesMenu extends Menu {
         if (product == null) {
             return;
         }
-        switch (accessory.getAccessoryType()){
-            case GAME_PAD :{
+        switch (accessory.getAccessoryType()) {
+            case GAME_PAD: {
                 System.out.println("Coming soon !");
                 break;
             }
-            case MONITOR:{
-                AdminMonitorEdit adminMonitorEdit = new AdminMonitorEdit((Monitor) accessory, admin);
+            case MONITOR: {
+                AdminMonitorEdit adminMonitorEdit = new AdminMonitorEdit((Monitor) accessory, admin, storeDB);
                 adminMonitorEdit.showMenu();
                 break;
             }
-            default:{
+            default: {
                 return;
             }
         }

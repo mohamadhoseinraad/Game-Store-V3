@@ -1,5 +1,6 @@
 package ir.ac.kntu.menu.Admin.Profile;
 
+import ir.ac.kntu.DAOStore;
 import ir.ac.kntu.HelperClasses.GetInputHelper;
 import ir.ac.kntu.HelperClasses.UserHelper;
 import ir.ac.kntu.models.Admin;
@@ -41,13 +42,17 @@ public class AdminProfile extends Menu {
                         changePassword();
                         break;
                     }
-                    case BACK:
+                    case BACK: {
+                        DAOStore.write(storeDB);
                         return;
+                    }
                     default:
                         System.out.println("Invalid choose");
                 }
             }
+            DAOStore.write(storeDB);
         }
+        DAOStore.write(storeDB);
         System.exit(0);
     }
 

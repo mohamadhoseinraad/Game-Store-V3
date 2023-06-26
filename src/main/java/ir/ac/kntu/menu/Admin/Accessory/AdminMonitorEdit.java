@@ -1,8 +1,10 @@
 package ir.ac.kntu.menu.Admin.Accessory;
 
+import ir.ac.kntu.DAOStore;
 import ir.ac.kntu.HelperClasses.ProductHelper;
 import ir.ac.kntu.menu.Menu;
 import ir.ac.kntu.models.Admin;
+import ir.ac.kntu.models.Store;
 import ir.ac.kntu.models.product.accessories.Monitor;
 import ir.ac.kntu.models.product.games.Genre;
 import ir.ac.kntu.utils.Scan;
@@ -12,16 +14,20 @@ public class AdminMonitorEdit extends Menu {
 
     private Monitor monitor;
 
+    private final Store storeDB;
+
     private Admin admin;
 
-    public AdminMonitorEdit(Monitor monitor, Admin admin) {
+    private AdminMonitorEditOptions option;
+
+    public AdminMonitorEdit(Monitor monitor, Admin admin, Store storeDB) {
         this.monitor = monitor;
         this.admin = admin;
+        this.storeDB = storeDB;
     }
 
     @Override
     public void showMenu() {
-        AdminMonitorEditOptions option;
         while (showMonitor() && (option = printMenuOptions("EDIT Monitor", AdminMonitorEditOptions.class)) != AdminMonitorEditOptions.EXIT) {
             if (option != null) {
                 switch (option) {
@@ -54,13 +60,16 @@ public class AdminMonitorEdit extends Menu {
                         break;
                     }
                     case BACK: {
+                        DAOStore.write(storeDB);
                         return;
                     }
                     default:
                         System.out.println("Invalid choose");
                 }
             }
+            DAOStore.write(storeDB);
         }
+        DAOStore.write(storeDB);
         System.exit(0);
     }
 

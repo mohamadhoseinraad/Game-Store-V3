@@ -11,6 +11,6 @@ public class Main {
         Store storeDB = DAOStore.read();
         AuthMenu authMenu = new AuthMenu(storeDB);
         authMenu.showMenu();
-        //DAOStore.write(storeDB);
+        DAOStore.write(storeDB);
     }
 }

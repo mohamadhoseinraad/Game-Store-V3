@@ -1,5 +1,6 @@
 package ir.ac.kntu.menu.Admin.Admins;
 
+import ir.ac.kntu.DAOStore;
 import ir.ac.kntu.HelperClasses.UserHelper;
 import ir.ac.kntu.menu.Menu;
 import ir.ac.kntu.models.Admin;
@@ -24,44 +25,69 @@ public class AdminEditAdminMenu extends Menu {
         while (userProfile() && (option = printMenuOptions("Profile", AdminEditUserMenuOptions.class)) != AdminEditUserMenuOptions.EXIT) {
             if (option != null) {
                 switch (option) {
-                    case EDIT_PERMISSION: {
-                        editPermission();
+                    case CHANGE_EMAIL, CHANGE_PASSWORD, EDIT_PERMISSION, CHANGE_USERNAME: {
+                        brokeSwitchCases(option);
                         break;
                     }
-                    case CHANGE_USERNAME: {
-                        changeUsername();
-                        break;
+                    default: {
+                        brokeSwitchCases2(option);
                     }
-                    case CHANGE_PHONE_NUMBER: {
-                        changePhoneNumber();
-                        break;
-                    }
-                    case CHANGE_EMAIL: {
-                        changeEmail();
-                        break;
-                    }
-                    case CHARGE_WALLET: {
-                        chargeWallet();
-                        break;
-                    }
-                    case CHANGE_PASSWORD: {
-                        changePassword();
-                        break;
-                    }
-                    case BAN_USER: {
-                        if (banUser()) {
-                            return;
-                        }
-                        break;
-                    }
-                    case BACK:
-                        return;
-                    default:
-                        System.out.println("Invalid choose");
                 }
+
             }
+            DAOStore.write(storeDB);
         }
+        DAOStore.write(storeDB);
         System.exit(0);
+    }
+
+    private void brokeSwitchCases2(AdminEditUserMenuOptions option) {
+        switch (option) {
+            case CHANGE_PHONE_NUMBER: {
+                changePhoneNumber();
+                break;
+            }
+            case CHARGE_WALLET: {
+                chargeWallet();
+                break;
+            }
+            case BAN_USER: {
+                if (banUser()) {
+                    DAOStore.write(storeDB);
+                    return;
+                }
+                break;
+            }
+            case BACK: {
+                DAOStore.write(storeDB);
+                return;
+            }
+            default:
+                System.out.println("Invalid choose");
+        }
+    }
+
+    private void brokeSwitchCases(AdminEditUserMenuOptions option) {
+        switch (option) {
+            case EDIT_PERMISSION: {
+                editPermission();
+                break;
+            }
+            case CHANGE_USERNAME: {
+                changeUsername();
+                break;
+            }
+            case CHANGE_EMAIL: {
+                changeEmail();
+                break;
+            }
+            case CHANGE_PASSWORD: {
+                changePassword();
+                break;
+            }
+            default:
+                System.out.print("");
+        }
     }
 
     private void editPermission() {

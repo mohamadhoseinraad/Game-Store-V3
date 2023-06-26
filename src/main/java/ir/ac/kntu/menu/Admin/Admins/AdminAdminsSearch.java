@@ -1,5 +1,6 @@
 package ir.ac.kntu.menu.Admin.Admins;
 
+import ir.ac.kntu.DAOStore;
 import ir.ac.kntu.models.Admin;
 import ir.ac.kntu.models.SearchEnum.UserFilterBy;
 import ir.ac.kntu.utils.Scan;
@@ -154,13 +155,16 @@ public class AdminAdminsSearch {
                         break;
                     }
                     case BACK: {
+                        DAOStore.write(storeDB);
                         return;
                     }
                     default:
                         System.out.println("Invalid choose");
                 }
             }
+            DAOStore.write(storeDB);
         }
+        DAOStore.write(storeDB);
         System.exit(0);
     }
 
