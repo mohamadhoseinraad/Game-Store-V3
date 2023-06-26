@@ -1,0 +1,5 @@
+package ir.ac.kntu.menu.Admin.Admins;
+
+public enum AdminEditUserMenuOptions {
+    EDIT_PERMISSION, CHANGE_USERNAME, CHANGE_PHONE_NUMBER, CHANGE_EMAIL, CHARGE_WALLET, CHANGE_PASSWORD, BAN_USER, BACK, EXIT
+}
