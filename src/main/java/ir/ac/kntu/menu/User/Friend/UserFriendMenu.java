@@ -1,5 +1,6 @@
 package ir.ac.kntu.menu.User.Friend;
 
+import ir.ac.kntu.DAOStore;
 import ir.ac.kntu.utils.Scan;
 import ir.ac.kntu.menu.Menu;
 import ir.ac.kntu.models.Store;
@@ -138,17 +139,21 @@ public class UserFriendMenu extends Menu {
                 switch (option) {
                     case ALL_FRIEND: {
                         allFriends();
+                        DAOStore.write(storeDB);
                         break;
                     }
                     case ADD_FRIEND: {
                         addFriend();
+                        DAOStore.write(storeDB);
                         break;
                     }
                     case YOUR_REQUESTS: {
                         requests();
+                        DAOStore.write(storeDB);
                         break;
                     }
                     case BACK: {
+                        DAOStore.write(storeDB);
                         return;
                     }
                     default:
@@ -156,8 +161,10 @@ public class UserFriendMenu extends Menu {
                 }
             }
             updateList();
+            DAOStore.write(storeDB);
 
         }
+        DAOStore.write(storeDB);
         System.exit(0);
 
     }

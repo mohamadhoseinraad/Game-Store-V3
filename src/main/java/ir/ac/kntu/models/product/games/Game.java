@@ -11,10 +11,11 @@ import ir.ac.kntu.models.product.Product;
 import ir.ac.kntu.models.product.ProductType;
 import ir.ac.kntu.utils.TerminalColor;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class Game extends Product {
+public class Game extends Product implements Serializable {
     private static int gamesNumber = 0;
 
     private final String id;

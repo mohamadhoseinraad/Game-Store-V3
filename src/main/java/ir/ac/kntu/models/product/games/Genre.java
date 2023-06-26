@@ -1,5 +1,7 @@
 package ir.ac.kntu.models.product.games;
 
-public enum Genre {
+import java.io.Serializable;
+
+public enum Genre implements Serializable {
     STRATEGY, SHOOTING, SIMULATION
 }

@@ -1,5 +1,7 @@
 package ir.ac.kntu.models.product;
 
-public enum ProductType {
+import java.io.Serializable;
+
+public enum ProductType implements Serializable {
     GAME, ACCESSORIES
 }

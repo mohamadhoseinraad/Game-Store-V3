@@ -7,10 +7,11 @@ import ir.ac.kntu.models.product.accessories.Accessory;
 import ir.ac.kntu.models.product.games.Game;
 import org.jetbrains.annotations.NotNull;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Map;
 
-public class Admin extends User implements Comparable {
+public class Admin extends User implements Comparable, Serializable {
     private final boolean isMastetAdmin;
 
     private boolean isDeveloper;

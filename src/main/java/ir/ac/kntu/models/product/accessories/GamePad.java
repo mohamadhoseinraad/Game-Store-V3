@@ -4,9 +4,10 @@ import ir.ac.kntu.HelperClasses.AccessoryHelper;
 import ir.ac.kntu.models.Admin;
 import ir.ac.kntu.models.User;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class GamePad extends Accessory {
+public class GamePad extends Accessory implements Serializable {
 
     private static int countGamePad = 0;
 

@@ -8,9 +8,10 @@ import ir.ac.kntu.models.product.accessories.GamePad;
 import ir.ac.kntu.models.product.accessories.Monitor;
 import org.jetbrains.annotations.NotNull;
 
+import java.io.Serializable;
 import java.util.*;
 
-public class User implements Comparable {
+public class User implements Comparable, Serializable {
 
     private static int countUser = 0;
 

@@ -1,5 +1,6 @@
 package ir.ac.kntu.menu.User.Friend;
 
+import ir.ac.kntu.DAOStore;
 import ir.ac.kntu.HelperClasses.GetInputHelper;
 import ir.ac.kntu.HelperClasses.StoreHelperClass;
 import ir.ac.kntu.utils.TerminalColor;
@@ -30,22 +31,27 @@ public class FriendProfileMenu extends Menu {
                 switch (option) {
                     case REMOVE_FRIEND: {
                         if (removeFriend()) {
+                            DAOStore.write(storeDB);
                             return;
                         }
                         break;
                     }
                     case SHOW_USER_PRODUCTS: {
                         showFriendProducts();
+                        DAOStore.write(storeDB);
                         break;
                     }
                     case BACK: {
+                        DAOStore.write(storeDB);
                         return;
                     }
                     default:
                         System.out.println("Invalid choose");
                 }
             }
+            DAOStore.write(storeDB);
         }
+        DAOStore.write(storeDB);
         System.exit(0);
     }
 

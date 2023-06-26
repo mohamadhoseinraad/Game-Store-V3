@@ -1,5 +1,7 @@
 package ir.ac.kntu.models;
 
-public enum UserType {
+import java.io.Serializable;
+
+public enum UserType implements Serializable {
     ADMIN,USER
 }

@@ -6,9 +6,10 @@ import ir.ac.kntu.models.product.Product;
 import ir.ac.kntu.models.product.ProductType;
 import ir.ac.kntu.models.product.accessories.Accessory;
 
+import java.io.Serializable;
 import java.util.*;
 
-public class Store {
+public class Store implements Serializable {
     private ArrayList<User> users = new ArrayList<>();
 
     private ArrayList<Admin> admins = new ArrayList<>();

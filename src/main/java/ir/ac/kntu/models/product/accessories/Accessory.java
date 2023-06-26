@@ -5,7 +5,9 @@ import ir.ac.kntu.models.User;
 import ir.ac.kntu.models.product.Product;
 import ir.ac.kntu.models.product.ProductType;
 
-public class Accessory extends Product {
+import java.io.Serializable;
+
+public class Accessory extends Product implements Serializable {
 
     private int amount = 0;
 

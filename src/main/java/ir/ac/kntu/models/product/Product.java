@@ -3,11 +3,12 @@ package ir.ac.kntu.models.product;
 import ir.ac.kntu.models.User;
 import org.jetbrains.annotations.NotNull;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public abstract class Product implements Comparable {
+public abstract class Product implements Comparable, Serializable {
 
     private String name;
 

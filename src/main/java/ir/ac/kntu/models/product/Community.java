@@ -2,7 +2,9 @@ package ir.ac.kntu.models.product;
 
 import ir.ac.kntu.utils.TerminalColor;
 
-public class Community {
+import java.io.Serializable;
+
+public class Community implements Serializable {
     private String username;
 
     private String comment;

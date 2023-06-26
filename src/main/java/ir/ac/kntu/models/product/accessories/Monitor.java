@@ -4,9 +4,10 @@ import ir.ac.kntu.HelperClasses.AccessoryHelper;
 import ir.ac.kntu.models.Admin;
 import ir.ac.kntu.models.User;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Monitor extends Accessory {
+public class Monitor extends Accessory implements Serializable {
 
     private static int countMonitor = 0;
 

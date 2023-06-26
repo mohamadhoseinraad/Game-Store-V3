@@ -5,11 +5,12 @@ import ir.ac.kntu.models.Store;
 import ir.ac.kntu.models.User;
 import ir.ac.kntu.models.product.games.Game;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
 
-public class FeedBack {
+public class FeedBack implements Serializable {
 
     private Period baseperiod = Period.of(0, 0, 5);
 
